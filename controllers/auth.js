@@ -170,7 +170,7 @@ exports.postSignup = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log(errors.array());
-    return res.status(422).render('auth/candidateSignup', {
+    return res.status(422).render('auth/candidate', {
       path: '/candidateSignup',
       pageTitle: 'candidateSignup',
       errorMessage: errors.array()[0].msg,
@@ -301,7 +301,7 @@ exports.postReset = (req, res, next) => {
         res.redirect('/');
         transporter.sendMail({
           to: req.body.email,
-          from: 'abhinav4999@gmail.com',
+          from: 'sams30713@gmail.com',
           subject: 'Password reset',
           html: `
             <p>You requested a password reset</p>

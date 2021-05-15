@@ -6,7 +6,7 @@ const isAdmin = require('../middleware/is-employer');
 
 const router = express.Router();
 
-router.get('/products', isAdmin, adminController.getProducts);
+router.get('/products', isAdmin, adminController.getProducts); 
 
 router.get('/addjob',isAdmin, adminController.getJob);
 

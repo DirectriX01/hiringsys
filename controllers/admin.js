@@ -12,6 +12,8 @@ exports.getEditProduct = (req, res, next) => {
   const prodId = req.params.productId;
   Job.findById(prodId)
     .then(product => {
+      // console.log(product);
+      // console.log(res.locals);
       if (!product) {
         return res.redirect('/');
       }
@@ -97,7 +99,7 @@ exports.postJob = (req, res, next) => {
   const errors = validationResult(req);
   const location = req.body.location;
   var dateObj = new Date();
-  let myDate = (dateObj.getUTCFullDate()) + "/" + (dateObj.getUTCMonth() + 1)+ "/" + (dateObj.getUTCYear());
+  let myDate = (dateObj.getUTCDate()) + "/" + (dateObj.getUTCMonth() + 1)+ "/" + (dateObj.getUTCFullYear());
   console.log(myDate);
 
   if (!errors.isEmpty()) {
