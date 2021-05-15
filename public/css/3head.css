@@ -1,0 +1,136 @@
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    opacity: 0.79;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.1s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 80px;
+    cursor: pointer;
+    background-color: #00695c;
+    color: #ffffff;
+    font: inherit;
+    border: none;
+    /* color: white; */
+    cursor: pointer;
+  }
+
+  .openbtn:hover{
+    background-color: black;
+  }
+    
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    width: 100%;
+   bottom:0px;
+   top:50px
+ 
+  }
+ 
+  #obj {
+    width: 250px;
+    height: 250px;
+    border: black;
+    border-style: double;
+    margin-right: 20px;
+    margin-left: 20px;
+    overflow: hidden;
+    
+    background-color: #00695c;
+    font-size: 24px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #obj2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 24px;
+    text-decoration: none;
+    
+  }
+
+
+  .radio {
+    display: flex;
+    justify-content: center;
+    background: #454857;
+    padding: 4px;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 3px rgba(35, 33, 45, 0.3),
+      0 0 0 3px rgba(185, 185, 185, 0.3);
+    position: relative;
+  }
+  
+  .radio input {
+    width: auto;
+    height: 100%;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 4px 8px;
+    background: #454857;
+    font:inherit;
+    transition: all 100ms linear;
+  }
+  
+  .radio input:checked {
+    background-image: linear-gradient(180deg, #95d891, #74bbad);
+    color: #fff;
+    box-shadow: 0 1px 1px #0000002e;
+    text-shadow: 0 1px 0px #79485f7a;
+  }
+  
+  .radio input:before {
+    content: attr(label);
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+  
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
