@@ -87,12 +87,12 @@
                 <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Accepted Jobs</a>
             </li>
             <li class="mobile-nav__item">
-                <a class="<%= path === '/orders' ? 'active' : '' %>" href="/rejected">Rejected Jobs</a>
+                <a class="<%= path === '/rejected' ? 'active' : '' %>" href="/rejected">Rejected Jobs</a>
             </li>
             <% } %>                   
             <% if (userType == 'employer') { %>
             <li class="mobile-nav__item">
-                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/addJobs">Add Jobs
+                <a class="<%= path === '/admin/addjob' ? 'active' : '' %>" href="/admin/addjob">Add Jobs
                 </a>
             </li>
             <li class="mobile-nav__item">
@@ -105,7 +105,7 @@
                 <a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a>
             </li>
             <li class="mobile-nav__item">
-                <a class="<%= path === '/signup' ? 'active' : '' %>" href="/selectSignup">Signup</a>
+                <a class="<%= path === '/selectSignup' ? 'active' : '' %>" href="/selectSignup">Signup</a>
             </li>
         <% } else { %>
             <li class="mobile-nav__item">
