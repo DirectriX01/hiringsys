@@ -171,7 +171,6 @@ form {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: stretch;
-  width: fit-content;
 }
 
 .card{
