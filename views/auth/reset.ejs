@@ -11,14 +11,12 @@
             <div class="user-message user-message--error"><%= errorMessage %></div>
         <% } %>
         <form class="login-form" action="/reset" method="POST">
-            <div>
+            <div class="radio">
                 <input type="radio" id="employer"
-                 name="employer" value="employer">
-                <label for="employer">employer</label>
+                 name="type" value="employer" label="employer">
             
                 <input type="radio" id="candidate"
-                 name="candidate" value="candidate">
-                <label for="candidate">candidate</label>
+                 name="type" value="candidate"label="candidate">
               </div>
             <div class="form-control">
                 <label for="email">E-Mail</label>

@@ -42,7 +42,3 @@ const options = {
 
 const darkmode = new Darkmode(options);
 darkmode.showWidget();
-
-window.addEventListener('load', addDarkmodeWidget);
-
-
