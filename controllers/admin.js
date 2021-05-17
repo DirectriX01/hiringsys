@@ -71,7 +71,7 @@ exports.postDeleteProduct = (req, res, next) => {
   // const prodId = req.body.productId;
   Job.deleteOne({ _id: prodId, userId: req.user._id })
     .then(() => {
-      console.log('DESTROYED PRODUCT');
+      // console.log('DESTROYED PRODUCT');
       res.redirect('/admin/products');
     })
     .catch(err => {
@@ -100,10 +100,10 @@ exports.postJob = (req, res, next) => {
   const location = req.body.location;
   var dateObj = new Date();
   let myDate = (dateObj.getUTCDate()) + "/" + (dateObj.getUTCMonth() + 1)+ "/" + (dateObj.getUTCFullYear());
-  console.log(myDate);
+  // console.log(myDate);
 
   if (!errors.isEmpty()) {
-    console.log(errors.array());
+    // console.log(errors.array());
     return res.status(422).render('admin/addjob', {
       pageTitle: 'Add Product',
       path: '/admin/addjob',
@@ -133,7 +133,7 @@ exports.postJob = (req, res, next) => {
     .save()
     .then(result => {
       // console.log(result);
-      console.log('Created Product');
+      // console.log('Created Product');
       res.redirect('/admin/products');
     })
     .catch(err => {

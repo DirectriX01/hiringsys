@@ -121,11 +121,11 @@ exports.postCart = (req, res, next) => {
       toBeproduct
         .save()
         .then((result) => {
-          console.log(result);
+          // console.log(result);
           res.redirect("/cart");
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           res.redirect("/");
         });
     })
@@ -143,7 +143,7 @@ exports.postCartDeleteProduct = (req, res, next) => {
     .then(result => {
       Product.findByIdAndUpdate(prodId, { status: 'Live'},function (err, docs) {
         if (err){
-            console.log(err);
+            // console.log(err);
         }});
       res.redirect('/cart');
     })
@@ -188,11 +188,11 @@ exports.postReject = (req, res, next) => {
       toBeproduct
         .save()
         .then((result) => {
-          console.log(result);
+          // console.log(result);
           res.redirect("/rejected");
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           res.redirect("/");
         });
     })
@@ -210,7 +210,7 @@ exports.postRejectDelete = (req, res, next) => {
     .then(result => {
       Product.findByIdAndUpdate(prodId, { status: 'Live'},function (err, docs) {
         if (err){
-            console.log(err);
+            // console.log(err);
         }});
       res.redirect('/rejected');
     })
