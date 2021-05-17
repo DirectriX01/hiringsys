@@ -20,20 +20,30 @@
                             <p class="product__description">Description:
                                 <%= product.description %>
                             </p>
-                            <h3 class="product__price">Stipend: $ 
-                                <%= product.price %>/month
+                            <h3 class="product__price">Stipend: ₹
+                                <%= product.price %>00/month
                             </h3>
                             <p class="product__description">Status: 
-                                <%= product.status %>
-                            </p>
+                                <% if (product.status == 'Live') { %>
+                                    <b style="color: blueviolet;">
+                                        <%= product.status %>
+                                    </b>
+                                 <% } else if (product.status == 'Accepted') { %>
+                                    <b style="color: greenyellow;">
+                                        <%= product.status %>
+                                    </b>
+                                <% } else if (product.status == 'Rejected') { %>
+                                    <b style="color: red;">
+                                        <%= product.status %>
+                                    </b>
+                                    <% } %>
+                                </p>     
                             <p class="product__description">PostedAt:
                                 <%= product.date %>
                             </p>
                         </div>
-                        <div class="card__actions">
-                            <% if (userType == 'candidate') { %>
-                                <%- include('../includes/add-to-cart.ejs', {product: product}) %>
-                            <% } %>
+                        <div class="card__actions" style="bottom: 0;">
+                            <a href="#" class="btn">Details</a>
                         </div>
                     </article>
                 <% } %> 

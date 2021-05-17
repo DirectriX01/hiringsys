@@ -169,8 +169,16 @@ form {
   align-items: stretch;
 }
 
-.card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+.card{
+  border: black;
+  border-style: groove;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #00695c;
+}
+
+.card:hover {
+  box-shadow: 4px 4px 8px rgba(5, 153, 121, 0.26);
 }
 
 .card__header,
