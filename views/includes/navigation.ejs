@@ -5,9 +5,10 @@
         <ul class="main-header__item-list">
             <div id="mySidebar" class="sidebar">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                <a href="#">DashBoard</a>
                 <% if (userType == 'employer') { %>
+                    <a href="/admin/dashboard">DashBoard</a>
                     <a href="#">Jobs</a>
+                    <hr>
                     <a href="#">Candidates</a>
                     <a href="#">Approval</a>
                     <a href="#">Reports</a>

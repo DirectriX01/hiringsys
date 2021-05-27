@@ -46,5 +46,6 @@ router.post(
 );
 
 router.post('/delete-product', isAdmin, adminController.postDeleteProduct);
+router.get('/dashboard',isAdmin, adminController.getDashboard);
 
 module.exports = router;

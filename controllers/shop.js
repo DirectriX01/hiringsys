@@ -210,7 +210,7 @@ exports.postRejectDelete = (req, res, next) => {
     .then(result => {
       Product.findByIdAndUpdate(prodId, { status: 'Live'},function (err, docs) {
         if (err){
-            // console.log(err);
+            console.log(err);
         }});
       res.redirect('/rejected');
     })

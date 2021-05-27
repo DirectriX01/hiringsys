@@ -36,6 +36,7 @@ exports.getEditProduct = (req, res, next) => {
 
 
 exports.getProducts = (req, res, next) => {
+  // console.log(req.user);
   const page = +req.query.page || 1;
     let totalItems;
       Job.find({ userId: req.user._id})
@@ -82,6 +83,7 @@ exports.postDeleteProduct = (req, res, next) => {
 };
 
 exports.getJob = (req, res, next) => {
+
   res.render('admin/addJob', {
     pageTitle: 'Add Product',
     path: '/admin/addjob',
@@ -192,3 +194,32 @@ exports.postEditProduct = (req, res, next) => {
   });
 };
 
+
+exports.getDashboard = (req, res, next) => {
+  const adminId = req.user._id;
+  const name = req.user.name;
+  const companyname = req.user.companyname;
+  const filter = { userId: adminId };
+  Job.aggregate([
+    { $match : filter},
+    {
+      $group : {
+        _id : { "Status" : "$status"},
+        count : {$sum : 1 },
+        totalamount : { $sum : "$price"},
+      } 
+    },
+    { $sort : {count : -1}}
+  ],
+  function (err,result) {
+    if(err) { console.log(err)}
+    console.log(result);
+    return res.status(200).render('admin/dashboard',{
+      name : name,
+      companyname : companyname,
+      fields : result,
+      pageTitle: 'Dashboard',
+      path: '/admin/dashboard'
+    });
+  }); 
+}

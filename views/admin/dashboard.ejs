@@ -1,20 +1,30 @@
 <%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/css/product.css">
 </head>
 
 <body>
     <%- include('../includes/navigation.ejs') %>
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    <%- include('../includes/end.ejs') %>
+    <h4 style="text-decoration: none; text-align: center;"> Welcome <%= name %>, here are the metrics for the Jobs you have posted for your firm  <b><%= companyname %></b>  </h4>
+    <main>
+        <% if (fields.length > 0) { %>
+            <div class="grid">
+                <% for (let field of fields) { %>
+                    <article class="card field-item">
+                        <div class="card__content">
+                            <h1 class="product__title">
+                                <%= field._id.Status %> Jobs
+                            </h1>
+                            <h3 class="product__price">Stipend in fray: ₹
+                                <%= field.totalamount %>00/month
+                            </h3>
+                            <p class="product__description">Count:
+                                <%= field.count %>
+                            </p>
+                        </div>
+                    </article>
+                <% } %> 
+            </div>
+           <% } else { %>
+            <h1>No Jobs Found!</h1>
+        <% } %>
+    </main>
+<%- include('../includes/end.ejs') %>
