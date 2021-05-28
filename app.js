@@ -54,12 +54,13 @@ app.use((req, res, next) => {
   }
   res.locals.userType = 0;
   // console.log(res.locals);
-  next();
+  return next();
 });
 
 app.use((req, res, next) => {
   // throw new Error('Sync Dummy');
   if (!req.session.user) {
+    // console.log('here');
     return next();
   }
   let Model = User;
@@ -74,9 +75,10 @@ app.use((req, res, next) => {
       }
       // console.log('found');
       req.user = user;
-      next();
+      return next();
     })
     .catch(err => {
+      // console.log('here');
       next(new Error(err));
     });
 });
@@ -91,7 +93,7 @@ app.use(errorController.get404);
 
 app.use((error, req, res, next) => {
   // res.redirect('/500');
-  console.log(error);
+  // console.log(error);
   res.status(500).render('500', {
     pageTitle: 'Error!',
     path: '/500',
@@ -106,4 +108,5 @@ mongoose
   })
   .catch(err => {
     console.log(err);
+    console.log('here');
   });

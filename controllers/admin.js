@@ -212,8 +212,9 @@ exports.getDashboard = (req, res, next) => {
     { $sort : {count : -1}}
   ],
   function (err,result) {
-    if(err) { console.log(err)}
+    if(err) { console.log(err);}
     console.log(result);
+    console.log('here');
     return res.status(200).render('admin/dashboard',{
       name : name,
       companyname : companyname,

@@ -149,7 +149,7 @@ exports.postLogin = (req, res, next) => {
           });
         })
         .catch(err => {
-          console.log(err);
+          // console.log(err);
           res.redirect('/login');
         });
     })
@@ -267,6 +267,7 @@ exports.postLogout = (req, res, next) => {
 };
 
 exports.getReset = (req, res, next) => {
+  // console.log(req.body);
   let message = req.flash('error');
   if (message.length > 0) {
     message = message[0];
@@ -283,33 +284,36 @@ exports.getReset = (req, res, next) => {
 exports.postReset = (req, res, next) => {
   crypto.randomBytes(32, (err, buffer) => {
     if (err) {
-      // console.log(err);
+      // console.log('this');
       return res.redirect('/reset');
     }
+    // console.log('here');
     const token = buffer.toString('hex');
     User.findOne({ email: req.body.email })
       .then(user => {
         if (!user) {
           req.flash('error', 'No account with that email found.');
+          console.log('here');
           return res.redirect('/reset');
         }
         user.resetToken = token;
         user.resetTokenExpiration = Date.now() + 3600000;
-        return user.save();
-      })
-      .then(result => {
-        res.redirect('/');
-        transporter.sendMail({
-          to: req.body.email,
-          from: 'sams30713@gmail.com',
-          subject: 'Password reset',
-          html: `
+        user.save()
+        .then(result => {
+          res.redirect('/');
+          transporter.sendMail({
+            to: req.body.email,
+            from: 'sams30713@gmail.com',
+            subject: 'Password reset',
+            html: `
             <p>You requested a password reset</p>
-            <p>Click this <a href="https://limitless-sands-99353.herokuapp.com/reset/${token}">link</a> to set a new password.</p>
-          `
-        });
+            <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
+            `
+          });
+        })
       })
       .catch(err => {
+        // console.log('here');
         const error = new Error(err);
         error.httpStatusCode = 500;
         return next(error);

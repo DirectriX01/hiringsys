@@ -19,7 +19,7 @@ router.post(
       .isLength({ min: 5 })
       .isAlphanumeric()
       .trim(),
-      body('type','Please select your type')
+      body('type','Please select your userType')
       .not().isEmpty()
   ],
   authController.postLogin

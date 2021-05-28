@@ -3,12 +3,12 @@ const { body } = require('express-validator');
 
 const adminController = require('../controllers/admin');
 const isAdmin = require('../middleware/is-employer');
-
+const isAuth = require('../middleware/is-auth');
 const router = express.Router();
 
-router.get('/products', isAdmin, adminController.getProducts); 
+router.get('/products',isAuth, isAdmin, adminController.getProducts); 
 
-router.get('/addjob',isAdmin, adminController.getJob);
+router.get('/addjob',isAuth,isAdmin, adminController.getJob);
 
 router.post(
   '/addjob',
@@ -27,7 +27,7 @@ router.post(
     adminController.postJob
   );
 
-router.get('/edit-product/:productId', isAdmin, adminController.getEditProduct);
+router.get('/edit-product/:productId', isAuth,isAdmin, adminController.getEditProduct);
 
 router.post(
   '/edit-product',
@@ -45,7 +45,7 @@ router.post(
   adminController.postEditProduct
 );
 
-router.post('/delete-product', isAdmin, adminController.postDeleteProduct);
-router.get('/dashboard',isAdmin, adminController.getDashboard);
+router.post('/delete-product', isAuth,isAdmin, adminController.postDeleteProduct);
+router.get('/dashboard',isAuth,isAdmin, adminController.getDashboard);
 
 module.exports = router;
