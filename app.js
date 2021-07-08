@@ -13,8 +13,7 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 const port = process.env.PORT || 3000;
 
-const MONGODB_URI = process.env.MONGO_DB_URI ||
-  'mongodb+srv://mongo:mongo@cluster0.sx44x.mongodb.net/shop?retryWrites=true&w=majority';
+const MONGODB_URI = process.env.MONGO_DB_URI;
 
 const app = express();
 const store = new MongoDBStore({
