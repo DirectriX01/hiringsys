@@ -11,7 +11,7 @@
   "author": "Abhinav",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,7 +20,7 @@
     "connect-mongodb-session": "^2.0.3",
     "csurf": "^1.11.0",
     "darkmode-js": "^1.5.7",
-    "ejs": "^2.6.1",
+    "ejs": "^3.1.8",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "express-validator": "^6.10.0",
